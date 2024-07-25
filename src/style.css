@@ -22,6 +22,7 @@ body{
     padding-left: 17px;
     font-size: 16px;
     margin-bottom: 40px;
+
 }
 .input-submit{
     background-color:#885DF1 ;
@@ -39,14 +40,17 @@ body{
     margin-bottom: 30px;
 }
 .city-temp{
-    display:flex;
+    display:flex;    
 }
 h1{
     font-size: 35px;
-    margin-right: 300px;
+    margin: 0;
     margin-bottom: 0;
     font-weight: 800px;
     margin-top: -7.5px;
+    white-space:nowrap;
+    flex-grow: 1;
+    
 }
 .temp-icon{
     margin-right:15px ;
@@ -56,10 +60,12 @@ h1{
 .temp-forcast{
     font-size: 80px;
     font-weight: 700;
+     
 }
 .temp-unit{
     margin-top:15px;
     font-size: 30px;
+    
 }
 .description{
     display: flex;
@@ -83,6 +89,7 @@ main{
 .footer{
     text-align: center;
     color: rgba(39, 33, 66, .4);
+    font-size: 14px;
 }
 .github-account{
     color:#885df1;
