@@ -4,33 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
   </head>
   <body>
+    <div class="main-part">
     <header>
-      <form>
-        <input type="text" placeholder="Enter a city" required />
-        <input type="submit" value="Search" />
+      <form class="form">
+        <input type="search" placeholder="Enter a city.." required  class="input-city"/>
+        <input type="submit" value="Search" class="input-submit"/>
+        <link rel="stylesheet" href="src/style.css">
       </form>
     </header>
     <main>
-      <h1>Paris</h1>
-      <p>☀️24°C</p>
+        <div class="city-temp"><h1>Paris</h1>
+          <span class="temp-icon">☀️</span> <span class="temp-forcast">24</span> <span class="temp-unit">°C</span>
+     </div>
+     <div class="description">
       <p>
         Wednesday 10:15, moderate rain <br />
-        Humidity: 87%, Wind: 7.2km/h
+        Humidity: <span class="humidity"> 87%</span>, Wind:<span class="wind"> 7.2km/h</span>
       </p>
+     </div>
     </main>
-    <footer>
+    <footer class="footer">
       This project is coded by
-      <a href="https://github.com/etsuamb" target="_blank">Etsub Girma</a> and
+      <a href="https://github.com/etsuamb" target="_blank" class="github-account">Etsub Girma</a> and
       is
-      <a href="https://github.com/etsuamb/WeahterApp-SheCodes" target="_blank"
+      <a href="https://github.com/etsuamb/WeahterApp-SheCodes" target="_blank" class="github-project"
         >on Github</a
       >
       and
-      <a href="https://watherapp-shecodes.netlify.app/" target="_blank"
+      <a href="https://watherapp-shecodes.netlify.app/" target="_blank" class="netlify-account"
         >hosted on Netlify</a
       >
     </footer>
+    </div>
   </body>
 </html>
