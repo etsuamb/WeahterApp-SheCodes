@@ -1,18 +1,21 @@
 function refreshCity(response) {
   let temperatureValue = document.querySelector("#temp-value");
   let temperature = response.data.temperature.current;
-  temperatureValue.innerHTML = Math.round(temperature);
   let cityElement = document.querySelector("#city-name");
-  cityElement.innerHTML = response.data.city;
   let weatherDescription = document.querySelector("#weather-description");
-  weatherDescription.innerHTML = response.data.condition.description;
   let humidityElemement = document.querySelector("#humid");
-  humidityElemement.innerHTML = `${response.data.temperature.humidity}%`;
   let windElement = document.querySelector("#wind-speed");
-  windElement.innerHTML = `${response.data.wind.speed}km/h`;
   let date = new Date(response.data.time*1000);
   let formattedDate = document.querySelector("#city-date");
+  let icon = document.querySelector("#icon");
+  
+  temperatureValue.innerHTML = Math.round(temperature);
+  cityElement.innerHTML = response.data.city;
+  weatherDescription.innerHTML = response.data.condition.description;
+  humidityElemement.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
   formattedDate.innerHTML=dateFormat(date);
+  icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="temp-icon"/>`;
 }
 function dateFormat(date) {
   let days = [
