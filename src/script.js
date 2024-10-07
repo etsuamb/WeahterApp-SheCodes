@@ -16,6 +16,8 @@ function refreshCity(response) {
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
   formattedDate.innerHTML=dateFormat(date);
   icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="temp-icon"/>`;
+  getForcast(response.data.city);
+
 }
 function dateFormat(date) {
   let days = [
@@ -37,7 +39,7 @@ function dateFormat(date) {
 }
 function searchCity(city) {
   let apiKey = "0c0da2fc4to069493aa82b3dbf389dd0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(refreshCity);
 }
 function searchResult(event) {
@@ -47,4 +49,40 @@ function searchResult(event) {
 }
 let searchElement = document.querySelector("#input-form");
 searchElement.addEventListener("submit", searchResult);
+
+function getForcast(city){
+  let apiKey = "0c0da2fc4to069493aa82b3dbf389dd0";
+ let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+ axios.get(apiUrl).then(displayForcast);
+}
+
+function formattedTimeStamp(timestamp){
+  let date = new Date(timestamp*1000);
+  let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  return days[date.getDay()];
+}
+
+function displayForcast(response){
+  let forcastSection = document.querySelector("#forcast-display");
+  let forcastHtml = "";
+  response.data.daily.forEach(function (day,index){
+    if(index<5){
+    forcastHtml =
+      forcastHtml +
+      ` 
+    <div class="forcast-region"  >
+    <div class="forcast-days">${formattedTimeStamp(day.time)}</div>
+    <Img src="${day.condition.icon_url}" class="forcast-icons" />
+              <div class="forcast-temps">
+                <div class="temp-values"> <strong>${Math.round(
+                  day.temperature.maximum
+                )}º</strong></div>
+                <div class="temp-values">${Math.round(
+                  day.temperature.minimum
+                )}º</div>
+              </div> </div>`;
+  }})
+  forcastSection.innerHTML = forcastHtml;
+  
+}
 searchCity("Addis Ababa");

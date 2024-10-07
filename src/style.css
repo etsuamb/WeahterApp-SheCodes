@@ -8,10 +8,10 @@ body {
   border: 1px solid;
   padding: 30px;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
   border: none;
-  height: 330px;
+  height: 490px;
 }
 .input-city {
   width: 75%;
@@ -36,7 +36,7 @@ body {
 }
 .form {
   border-bottom: 1px solid #f9f7fe;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .city-temp {
   display: flex;
@@ -79,12 +79,13 @@ h1 {
 }
 main {
   border-bottom: 1px solid #f9f7fe;
-  margin-bottom: 30px;
+ 
 }
 .footer {
   text-align: center;
   color: rgba(39, 33, 66, 0.4);
   font-size: 14px;
+  margin-top: 30px;
 }
 .github-account {
   color: #885df1;
@@ -94,4 +95,28 @@ main {
 }
 .netlify-account {
   color: #885df1;
+}
+.forcast-temps{
+  display: flex;
+}
+
+.forcast-days{
+  margin-bottom: 10px;
+  color:#A9A6B3 ;
+  margin-left: 20px;
+}
+.forcast-icons{
+width: 80px;
+ height: 80px;
+ 
+}
+.temp-values{
+  margin-right: 25px;
+  color: #f65282;
+}
+.forcast-section{
+  display: flex;
+  justify-content: space-around;
+  min-height: 170px;
+
 }
